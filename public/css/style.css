@@ -20,6 +20,8 @@ body {
     --text-color: #FFFFFF;
     --text-color2: #000000;
     --pink-color: #FFC5F5;
+    --green-color: #26c518;
+    --red-color: #af2727;
 }
 
 /*--Landing Page--*/
@@ -165,7 +167,7 @@ body.register-page {
 
 }
 
-.exclusive-membership button{
+.user-login button{
     background-color: var(--primary-color);
     font-weight: 600;
     font-size: 15px;
@@ -173,11 +175,11 @@ body.register-page {
     border: 1px solid var(--text-color2);
     border-radius: 50px;
     padding: 8px 80px;
-    margin-left: 200px;
+    margin-right: 200px;
     transition: transform 0.3s ease-in-out;
 }
 
-.exclusive-membership button:hover {
+.user-login button:hover {
     transform: translateY(-10px);
 }
 
@@ -185,7 +187,7 @@ body.register-page {
     border: 1px solid var(--text-color2);
     border-radius: 40px;
     padding: 8px 100px 8px 10px;
-    margin-right: 200px;
+    margin-left: 200px;
 }
 
 .nav-bar {
@@ -310,6 +312,37 @@ body.register-page {
     height: auto;
 }
 
+.member-id {
+    max-width: 1200px; /* Match your form's width */
+    margin: 20px auto 0; /* auto centers the container horizontally */
+    padding: 0 20px;
+    width: 18%; /* Add this to ensure proper centering */
+    padding: 5px;
+    
+}
+
+.member-id p {
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.member-id input {
+    width: 20%;
+    min-width: 250px; /* Ensures input doesn't get too small */
+    padding: 8px 10px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.member-id input:focus {
+    border-color: #75DDF9;
+}
 
 .dropdown-section {
     display: grid;
@@ -368,18 +401,91 @@ body.register-page {
   display: block;
 }
 
+.add-cart-button button{
+    background-color: var(--green-color);
+    font-size: 12px;
+    color: var(--text-color);
+    padding: 8px;
+    border-radius: 30px;
+
+}
+
+.ticket-cart {
+    background: var(--text-color);
+    border: 1px solid var(--text-color2);
+    border-radius: 12px;
+    padding: 10px 30px 30px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+} 
+
 .ticket-cart h1{
     display: grid;
     place-items: center;
     font-size: 30px;
 }
 
-.cart-info {
-    border: 1px solid var(--text-color2);
+.ticket-cart table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+.ticket-cart table th {
+    background-color: #75DDF9;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+    border: 2px solid #000;
+}
+
+.ticket-cart table th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.ticket-cart table th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+.ticket-cart table td {
+    padding: 15px;
+    border: 2px solid #000;
+    border-top: none;
+    font-size: 15px;
+    color: #333;
+}
+
+.ticket-cart table tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+
+.ticket-cart table tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+.ticket-cart table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.remove button {
+    background-color: var(--red-color);
+    font-size: 12px;
+    color: var(--text-color);
+    padding: 8px;
     border-radius: 30px;
-    padding: 20px 40px;
-    margin: 20px 500px;
-    display: flex;
-    align-items: center;
-    gap: 90px;
+}
+
+.checkout button {
+    background-color: var(--green-color);
+    font-size: 12px;
+    color: var(--text-color);
+    padding: 8px;
+    border-radius: 30px;
 }

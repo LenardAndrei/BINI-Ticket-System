@@ -44,7 +44,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('landing'); // or ticket page
+            return redirect()->route('events'); // or ticket page
         }
 
         return back()->withErrors(['email' => 'Invalid credentials']);
@@ -56,6 +56,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('landing');
+        return redirect()->route('logout');
     }
 }

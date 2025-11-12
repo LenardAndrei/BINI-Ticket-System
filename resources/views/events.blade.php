@@ -1,3 +1,5 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +10,22 @@
 </head>
 <body>
     <div class="event-header">
-        <div class="exclusive-membership">
-            <button>Exclusive Membership</button>
-        </div>
-
         <div class="search-bar">
             <input type="search" id="search-input" name="query" placeholder="Search...">
+        </div>
+
+        <div class="user-login">
+            @if(Auth::check())
+                <button>{{ Auth::user()->name }}</button>
+            @else
+                <button><a href="{{ route('login.form') }}">Login</a></button>
+            @endif  
+
+            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
+
         </div>
     </div>
 
@@ -40,9 +52,15 @@
                             <p>{{ \Carbon\Carbon::parse($date->event_date)->format('F j, Y') }}</p>
                         @endforeach
 
-                        <a href="{{ route('tickets.show', $event->id) }}">
-                            <button>Buy Ticket</button>
-                        </a>
+                        @if(Auth::check())
+                            <a href="{{ route('tickets.show', $event->id) }}">
+                                <button>Buy Ticket</button>
+                            </a>
+                        @else
+                            <a href="{{ route('login.form') }}" onclick="alert('Please login first to buy a ticket.')">
+                                <button>Buy Ticket</button>
+                            </a>
+                        @endif
                     </div>
                 @endforeach
             </div>

@@ -17,9 +17,9 @@ class TicketSection extends Model
     }
 
     public function seats()
-    {
-        return $this->hasMany(Seat::class);
-    }
+{
+    return $this->hasMany(Seat::class, 'section_id');
+}
 
     public function tickets()
     {
